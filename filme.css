@@ -123,6 +123,11 @@ body {
     width: 15px;
   }
 
+  .icon_editar{
+    width: 80px;
+  }
+  
+
   /* MODAL */
 
   .modal {
@@ -199,7 +204,7 @@ body {
     border-color: grey;
   }
 
-  button {
+  .botao_salvar {
     background-color: #8758ff;
     color: white;
     padding: 10px 1px;

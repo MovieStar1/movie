@@ -55,6 +55,7 @@
     <div class="container">
       <div class="lista_header">
         <h2 class="lista_titulo">Filmes</h2>
+        <a onclick="atualizar()><img  src="/Imagens/icon_editar.png" class="icon_editar"></a>
 
         <!-- BOTÃO PARA ABRIR MODAL -->
         <a href="#demo_modal" class="lista_icon" id="new">
@@ -78,43 +79,7 @@
               <div class="form_caixa">
                 <label for="genero" class="form_titulo" ><b>Gênero</b></label>
                 <select class="form_opcao" id="genero">
-                  <option  value="”valor_do_item_01”">
-                    Ação
-                  </option>
-                  <option value="”valor_do_item_02”">
-                    Animação
-                  </option>
-                  <option value="”valor_do_item_03”">
-                    Aventura
-                  </option>
-                  <option value="”valor_do_item_04”">
-                    Comédia
-                  </option>
-                  <option value="”valor_do_item_05”">
-                    Documentários
-                  </option>
-                  <option value="”valor_do_item_06”">
-                    Drama
-                  </option>
-                  <option value="”valor_do_item_07”">
-                    Fantasia
-                  </option>
-                  <option value="”valor_do_item_08”">
-                    Ficção Científica
-                  </option>
-                  <option value="”valor_do_item_09”">
-                    Guerra
-                  </option>
-                  <option value="”valor_do_item_10”">
-                    Romance
-                  </option>
-                  <option value="”valor_do_item_11”">
-                    Suspense
-                  </option>
-                  <option value="”valor_do_item_12”">
-                    Terro
-                  </option>
-                </select>
+
               </div>
 
               <div class="form_caixa">
@@ -131,15 +96,15 @@
                   class="box_text" />
               </div>
               <button type="button" class="botao_salvar" id="salvo" onclick="salvar();">Enviar</button>
-              <button class="botao_editar" id="editar">Editar</button>
             </form>
           </div>
         </div>
       </div>
 
       <section class="lista" id="movieList">
+
+       
       </section>
-        
     </div>
 
     <script src="/filme.js"></script>
