@@ -57,7 +57,7 @@
         <h2 class="lista_titulo">Filmes</h2>
 
         <!-- BOTÃO PARA ABRIR MODAL -->
-        <a href="#demo_modal" class="lista_icon" onclick="openModal()" id="new">
+        <a href="#demo_modal" class="lista_icon" id="new">
           <img src="/Imagens/Icon-add-filmes.png" alt="Adicionar filmes" />
         </a>
 
@@ -69,7 +69,7 @@
           </div>
 
           <div class="modal_conteudo">
-            <form action="action_page.php" method="post" class="form_container">
+            <form method="post" class="form_container" id="myForm">
               <div class="form_caixa">
                 <label for="titulo" class="form_titulo" ><b>Título</b></label>
                 <input type="text" name="uname" required class="box_text" id="titulo"/>
@@ -123,95 +123,23 @@
               
 
               <div class="form_caixa">
-                <label for="modal_file" class="form_titulo"
-                  ><b>Escolha uma foto para poster:</b></label
-                >
+                <label for="modal_file" class="form_titulo"><b>Escolha uma foto para poster:</b></label>
                 <input
                   type="file"
                   id="modal_file"
                   accept="image/png, image/jpeg"
                   class="box_text" />
               </div>
-              <button class="botao_salvar" id="salvar" onclick="salvar()">Enviar</button>
+              <button type="button" class="botao_salvar" id="salvo" onclick="salvar();">Enviar</button>
               <button class="botao_editar" id="editar">Editar</button>
-              <button class="botao_excluir" id="excluir">Excluir</button>
             </form>
           </div>
         </div>
       </div>
 
       <section class="lista" id="movieList">
-        <div class="lista_filmes">
-          <div class="lista_filmes_um"></div>
-          <img
-            class="img_poster"
-            src="https://br.web.img3.acsta.net/pictures/23/12/12/15/59/2772653.jpg"
-            alt="Madame Teia" />
-          <div class="text_container">
-            <p class="lista_titulos">Madame Teia</p>
-            <p class="lista_titulos_p">
-              Cassandra Webb, uma paramédica em Manhattan, tem habilidades de
-              clarividência. Forçada a confrontar revelações sobre seu passado,
-              ela forja uma relação com três jovens destinadas a futuros
-              poderosos.
-            </p>
-            <img class="icon_fav" src="/Imagens/icon_fav.png" />
-          </div>
-        </div>
-
-        <div class="lista_filmes">
-          <div class="lista_filmes_dois"></div>
-          <img
-            class="img_poster"
-            src="https://images.justwatch.com/poster/310038611/s592/saltburn"
-            alt="Saltburn" />
-          <div class="text_container">
-            <p class="lista_titulos">Saltburn</p>
-            <p class="lista_titulos_p">
-              Felix Catton convida seu amigo Oliver Quick para passar as férias
-              de verão na mansão de sua família, na região de Saltburn. Com a
-              chegada do garoto, uma série de eventos perturbadores atinge os
-              Cattons.
-            </p>
-            <img class="icon_fav" src="/Imagens/icon_fav.png" />
-          </div>
-        </div>
-
-        <div class="lista_filmes">
-          <div class="lista_filmes_tres"></div>
-          <img
-            class="img_poster"
-            src="https://m.media-amazon.com/images/I/71WSzS6zvCL._AC_UF1000,1000_QL80_.jpg"
-            alt="Jogos Vorazes" />
-          <div class="text_container">
-            <p class="lista_titulos">Jogos Vorazes</p>
-            <p class="lista_titulos_p">
-              Na região antigamente conhecida como América do Norte, a Capital
-              de Panem controla 12 distritos e os força a escolher um garoto e
-              uma garota, conhecidos como tributos, para competir em um evento
-              anual televisionado.
-            </p>
-            <img class="icon_fav" src="/Imagens/icon_fav.png" />
-          </div>
-        </div>
-
-        <div class="lista_filmes">
-          <div class="lista_filmes_quatro"></div>
-          <img
-            class="img_poster"
-            src="https://www.europanet.com.br/upload/id_produto/107___/107344g.jpg"
-            alt="Barbie" />
-          <div class="text_container">
-            <p class="lista_titulos">Barbie</p>
-            <p class="lista_titulos_p">
-              Depois de ser expulsa da Barbieland por ser uma boneca de
-              aparência menos do que perfeita, Barbie parte para o mundo humano
-              em busca da verdadeira felicidade
-            </p>
-            <img class="icon_fav" src="/Imagens/icon_fav.png" />
-          </div>
-        </div>
       </section>
+        
     </div>
 
     <script src="/filme.js"></script>

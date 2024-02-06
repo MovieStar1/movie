@@ -96,10 +96,7 @@ body {
   .img_poster {
     width: 115px;
   }
-
-  .icon_fav {
-    width: 100px;
-  }
+  
 
   .text_container {
     display: flex;
@@ -138,7 +135,6 @@ body {
     right: 15px;
     bottom: 2px;
     left: 15px;
-    display: flex;
     flex-direction: column;
   }
 
