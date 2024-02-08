@@ -131,7 +131,6 @@ body {
   /* MODAL */
 
   .modal {
-    visibility: hidden;
     position: absolute;
     display: flex;
     align-items: center;
@@ -141,12 +140,11 @@ body {
     bottom: 2px;
     left: 15px;
     flex-direction: column;
-    display: none;
   }
 
-  .modal:target {
+  /* .modal:target {
     visibility: visible;
-  }
+  } */
 
   .modal_header {
     width: 100%;
@@ -161,20 +159,14 @@ body {
     padding-left: 0.5em;
   }
 
-  .modal_header_fechar {
-    cursor: pointer;
-    font-size: 28px;
-    font-weight: bold;
-    padding-right: 0.5em;
-    color: black;
-  }
-
   .modal_conteudo {
     border-radius: 4px;
     position: relative;
     width: 90%;
     max-width: 100%;
     padding: 2em;
+   display: flex;
+   
   }
 
   .form_container {
@@ -205,12 +197,18 @@ body {
     border-color: grey;
   }
 
-  .botao_salvar {
+  .botao_salvar, .btn_fechar_modal  {
     background-color: #8758ff;
     color: white;
     padding: 10px 1px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+   
+  }
+
+  .cabeçalho_modal_fechar {
+    color: black;
+    padding-right: 1em;
   }
 }

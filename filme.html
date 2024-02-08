@@ -55,49 +55,48 @@
     <div class="container">
       <div class="lista_header">
          <h2 class="lista_titulo">Filmes</h2>
-        
-        <!-- BOTÃO PARA ABRIR MODAL -->
-        <a href="#demo_modal" class="lista_icon" id="new">
-          <img src="/Imagens/Icon-add-filmes.png" alt="Adicionar filmes" />
-        </a>
 
-        <!-- MODAL -->
-        <div id="demo_modal" class="modal">
-          <div class="modal_header">
-            <h2 class="modal_header_texto">Adicionar Filme</h2>
-            <a href="#" class="modal_header_fechar">&times;</a>
-          </div>
-
-          <div class="modal_conteudo">
-            <form method="post" class="form_container" id="myForm">
-              <div class="form_caixa">
-                <label for="titulo" class="form_titulo" ><b>Título</b></label>
-                <input type="text" name="uname" required class="box_text" id="titulo"/>
+         <button class="btn_abrir_modal" onclick="abrirModal('vis-modal')">Abrir</button>
+            <div id="vis-modal" class="modal">
+              <div class="modal_header">
+                <h2 class="modal_header_texto">Adicionar Filme</h2>
+                <span class="cabeçalho_modal_fechar" onclick="fecharModal('vis-modal')">X</span>
               </div>
 
-              <div class="form_caixa">
-                <label for="genero" class="form_titulo" ><b>Gênero</b></label>
-                <select class="form_opcao" id="genero">
+              <div class="modal_conteudo">
+                <form method="post" class="form_container" id="myForm">
+                  <div class="form_caixa">
+                    <label for="titulo" class="form_titulo" ><b>Título</b></label>
+                    <input type="text" name="uname" required class="box_text" id="titulo"/>
+                  </div>
 
-              </div>
+                  <div class="form_caixa">
+                    <label for="genero" class="form_titulo" ><b>Gênero</b></label>
+                    <select class="form_opcao" id="genero">
 
-              <div class="form_caixa">
-                <label for="sinopse" class="form_titulo" "><b>Sinopse</b></label>
-                <textarea rows="3" class="form_caixa" id="sinopse"></textarea>
+                  </div>
+
+                  <div class="form_caixa">
+                    <label for="sinopse" class="form_titulo" "><b>Sinopse</b></label>
+                    <textarea rows="3" class="form_caixa" id="sinopse"></textarea>
+                  
+
+                  <div class="form_caixa">
+                    <label for="modal_file" class="form_titulo"><b>Escolha uma foto para poster:</b></label>
+                    <input
+                      type="file"
+                      id="modal_file"
+                      accept="image/png, image/jpeg"
+                      class="box_text" />
+                  </div>
+                  <button type="button" class="botao_salvar" id="salvo" onclick="salvar();">Enviar</button>
+                  <button class="btn_fechar_modal" onclick="fecharModal('vis-modal')">Fechar</button>
+                </form>
+
+                
               
-
-              <div class="form_caixa">
-                <label for="modal_file" class="form_titulo"><b>Escolha uma foto para poster:</b></label>
-                <input
-                  type="file"
-                  id="modal_file"
-                  accept="image/png, image/jpeg"
-                  class="box_text" />
-              </div>
-              <button type="button" class="botao_salvar" id="salvo" onclick="salvar();">Enviar</button>
-            </form>
-          </div>
-        </div>
+              </div> 
+            </div>
       </div>
 
       <section class="lista" id="movieList">
