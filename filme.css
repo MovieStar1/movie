@@ -15,15 +15,36 @@ body {
     align-items: center;
   }
 
-  .icon_menu img,
-  .icon_search img {
-    width: 30px;
-    height: auto;
+  .menu_lista {
+    background-color: #8758ff;
+    width: 50px;
+    height: 50px;
+    background-image: url(/Imagens/icon_menu.svg);
+    background-size: 30px 30px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
   }
+  
 
   .menu_texto {
     color: white;
   }
+
+  .lista_menu {
+    display: none;
+    
+  }
+
+  #menu:checked + .menu_rotulo + .lista_menu {
+    display: block;
+  }
+
+  #menu:not(:checked) + .menu_rotulo + .lista_menu {
+    display: none;
+  }
+
 
   .favoritos_titulo {
     color: white;
@@ -67,7 +88,13 @@ body {
     padding-top: 10px;
   }
   
-  .btn_abrir_modal{
+  .alinhar {
+    display: flex;
+    gap: 50px;
+  }
+  
+
+  .btn_abrir_modal, .btn_fav {
     background: none;
     border: none;
   }
@@ -115,6 +142,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    margin-bottom: 10px;
   }
 
   .lista_titulos {
