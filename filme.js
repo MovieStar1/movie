@@ -1,25 +1,17 @@
 const filmes = JSON.parse(localStorage.getItem("filmes")) || [];
 
 function abrirModal(carregarModal) {
-  console.log("Carregar a janela modal:" + carregarModal);
-
-  let modal = document.getElementById(carregarModal)
-
-  modal.style.display = 'block';
-
-  document.body.style.overflow = 'hidden';
+  let modal = document.getElementById(carregarModal);
+  modal.style.display = "block";
+  document.body.style.overflow = "hidden";
+  console.log("Modal aberto: " + carregarModal);
 }
 
 function fecharModal(fecharModal) {
-  let modal = document.getElementById(fecharModal)
-
-    modal.style.display = 'none';
-
- 
-    document.body.style.overflow = 'auto';
+  let modal = document.getElementById(fecharModal);
+  modal.style.display = "none";
+  document.body.style.overflow = "auto";
 }
-
-
 
 function preencherDropdown() {
   const listaOpcoes = document.querySelector(".form_opcao");
@@ -50,7 +42,6 @@ function preencherDropdown() {
 
 addEventListener("DOMContentLoaded", (event) => {
   preencherDropdown();
-  
 
   const listaFilmesContainer = document.querySelector(".lista");
 
@@ -67,15 +58,47 @@ addEventListener("DOMContentLoaded", (event) => {
         <p class="lista_titulos">${filme.titulo}</p>
         <p class="lista_titulos_p">${filme.genero}</p>
         <p class="lista_titulos_p">${filme.sinopse}</p>
-        <img class="icon_fav" src="/Imagens/icon_fav.png" />
-        <button onclick='editarFilme("${filme.id}")'>Editar</button>
-        <button onclick='excluir("${filme.id}")'>Excluir</button>
+        <div class="btn_acao">
+            <button class="btn_abrir_modal">
+              <img src="/Imagens/icon_favorite_1.svg" class="botao_favorite">
+            </button>
+
+            <button class="btn_abrir_modal btn_editar" data-id="${filme.id}">
+                <img src="/Imagens/icon_edit.svg" class="botao_edit">
+            </button>
+
+            <button class="btn_abrir_modal" onclick='excluir("${filme.id}")'>
+              <img src="/Imagens/icon_delete.svg" class="botao_delete">
+            </button>
+         </div>
       </div>
     `;
 
     listaFilmesContainer.appendChild(divFilme);
   });
+
+  // Adicionamos um código que fecha o modal automaticamente após o carregamento da página
+  fecharModal('vis-modal');
+
+  // Adicionamos um único evento de clique aos botões "Editar"
+  const btnsEditar = document.querySelectorAll(".btn_editar");
+  btnsEditar.forEach(function (btnEditar) {
+    btnEditar.addEventListener("click", function () {
+      const filmeId = btnEditar.getAttribute("data-id");
+      editarFilme(filmeId);
+    });
+  });
+
+  console.log("End of DOMContentLoaded event.");
 });
+
+// Adicionamos um único evento de clique ao botão "Adicionar"
+const btnAdicionar = document.querySelector(".btn_abrir_modal");
+btnAdicionar.addEventListener("click", function () {
+  abrirModal('vis-modal');
+});
+
+
 
 function salvar() {
   const titulo = document.getElementById("titulo").value;
@@ -95,6 +118,7 @@ function salvar() {
       sinopse: sinopse,
       imagem: imagemBase64,
       id: crypto.randomUUID(),
+      favorite: false,
     };
 
     filmes.push(filme);
@@ -125,15 +149,15 @@ function editarFilme (id) {
   document.getElementById('sinopse').value = found.sinopse;
   
   const buttonEnviar = document.getElementById('salvo');
-  buttonEnviar.onclick = function() {
-    salvarEdicao(id, found);
-  }
+    buttonEnviar.onclick = function() {
+      salvarEdicao(id, found);
+    }
 }
 
 function salvarEdicao(id, filmeOriginal) {
-  const titulo = document.getElementById('titulo').value;
-  const genero = document.getElementById('genero').value;
-  const sinopse = document.getElementById('sinopse').value;
+  const titulo = document.getElementById("titulo").value;
+  const genero = document.getElementById("genero").value;
+  const sinopse = document.getElementById("sinopse").value;
 
   const filmeIndex = filmes.findIndex((filme) => filme.id === id);
 
@@ -143,17 +167,15 @@ function salvarEdicao(id, filmeOriginal) {
       titulo: titulo,
       genero: genero,
       sinopse: sinopse,
-      imagem: filmeOriginal.imagem, // Usar a imagem original
+      imagem: filmeOriginal.imagem,
     };
 
-    localStorage.setItem('filmes', JSON.stringify(filmes));
+    localStorage.setItem("filmes", JSON.stringify(filmes));
 
-    fecharModal('vis-modal');
-    location.reload(); // Recarregar a página ou atualizar a exibição dos filmes
+    fecharModal("vis-modal"); // Adicione esta linha para fechar o modal
+    location.reload();
   }
 }
-
-
 
 function excluir(id) {
   const filtrado = filmes.filter(function (filme) {
@@ -164,11 +186,14 @@ function excluir(id) {
   location.reload();
 }
 
+function toggleFavorito(id) {
+  const filmeIndex = filmes.findIndex((filme) => filme.id === id);
 
+  if (filmeIndex !== -1) {
+    filmes[filmeIndex].favorite = !filmes[filmeIndex].favorite;
 
+    localStorage.setItem("filmes", JSON.stringify(filmes));
 
-
-
-
-
-
+    location.reload();
+  }
+}

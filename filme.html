@@ -53,15 +53,18 @@
     <img src="/Imagens/🦆 icon _line h_.png"> -->
 
     <div class="container">
-      <div class="lista_header">
-         <h2 class="lista_titulo">Filmes</h2>
-
-         <button class="btn_abrir_modal" onclick="abrirModal('vis-modal')">Abrir</button>
-            <div id="vis-modal" class="modal">
-              <div class="modal_header">
-                <h2 class="modal_header_texto">Adicionar Filme</h2>
-                <span class="cabeçalho_modal_fechar" onclick="fecharModal('vis-modal')">X</span>
-              </div>
+        <div>
+            <div class="lista_header">
+              <h2 class="lista_titulo">Filmes</h2>
+                <button class="btn_abrir_modal" onclick="abrirModal('vis-modal')">
+                  <img src="/Imagens/add-plus-new-svgrepo-com.svg" class="icone_adicionar">
+                </button>
+            </div>
+                <div id="vis-modal" class="modal">
+                  <div class="modal_header">
+                    <h2 class="modal_header_texto">Adicionar Filme</h2>
+                    <span class="cabeçalho_modal_fechar" onclick="fecharModal('vis-modal')">X</span>
+                  </div>
 
               <div class="modal_conteudo">
                 <form method="post" class="form_container" id="myForm">
@@ -78,7 +81,7 @@
 
                   <div class="form_caixa">
                     <label for="sinopse" class="form_titulo" "><b>Sinopse</b></label>
-                    <textarea rows="3" class="form_caixa" id="sinopse"></textarea>
+                    <textarea rows="2" class="form_caixa" id="sinopse"></textarea>
                   
 
                   <div class="form_caixa">
@@ -100,8 +103,8 @@
       </div>
 
       <section class="lista" id="movieList">
+        <div id="favorites_box" class="flow__list-boxes"></div>
         
-       
       </section>
     </div>
 

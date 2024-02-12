@@ -58,18 +58,31 @@ body {
   .container {
     padding: 16px;
     display: flex;
-    
   }
+
   .lista_header {
-    flex-direction: row;
-    justify-content: space-between;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
   }
+  
+  .btn_abrir_modal{
+    background: none;
+    border: none;
+  }
+
+  .icone_adicionar {
+    width: 20px;
+    height: 20px;
+    padding-right: 20px;
+  }
+  
 
   .lista_titulo {
     padding: 0 0;
     color: white;
-    padding-left: 10px;
+    padding-left: 15px;
     font-size: 35px;
   }
 
@@ -118,11 +131,6 @@ body {
     display: flex;
     flex-direction: column;
   }
-
-  .icon_fav {
-    width: 15px;
-  }
-
   .icon_editar{
     width: 80px;
   }
@@ -142,9 +150,7 @@ body {
     flex-direction: column;
   }
 
-  /* .modal:target {
-    visibility: visible;
-  } */
+  
 
   .modal_header {
     width: 100%;
@@ -168,6 +174,8 @@ body {
    display: flex;
    
   }
+
+ 
 
   .form_container {
     display: flex;
@@ -211,4 +219,25 @@ body {
     color: black;
     padding-right: 1em;
   }
+
+  .btn_acao {
+   display: flex;
+   gap: 20px;
+  }
+
+  .botao_favorite {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .botao_edit {
+    width: 20px;
+    height: 20px;
+  }
+
+  .botao_delete {
+    width: 20px;
+    height: 20px;
+  }
+ 
 }
