@@ -58,8 +58,8 @@ addEventListener("DOMContentLoaded", (event) => {
 
         <div class="alinhar">
           <p class="lista_titulos">${filme.titulo}</p>
-          <button class="btn_fav">
-                <img src="/Imagens/icon_favorite_1.svg" class="botao_favorite">
+          <button class="btn_fav" onclick='clicarFavorito("${filme.id}")'>
+                <img src="/Imagens/icon_favorite_1.svg" class="botao_favorite" id="estrela-${filme.id}">
           </button>
           </div>
 
@@ -92,7 +92,7 @@ addEventListener("DOMContentLoaded", (event) => {
     });
   });
 
-  console.log("End of DOMContentLoaded event.");
+  
 });
 
 // Adicionamos um único evento de clique ao botão "Adicionar"
@@ -189,7 +189,7 @@ function excluir(id) {
   location.reload();
 }
 
-function toggleFavorito(id) {
+function clicarFavorito(id) {
   const filmeIndex = filmes.findIndex((filme) => filme.id === id);
 
   if (filmeIndex !== -1) {
@@ -197,6 +197,19 @@ function toggleFavorito(id) {
 
     localStorage.setItem("filmes", JSON.stringify(filmes));
 
-    location.reload();
+    atualizarEstrela(id);
+  }
+}
+
+function atualizarEstrela(id) {
+  const filmeIndex = filmes.findIndex((filme) => filme.id === id);
+  const estrela = document.getElementById(`estrela-${id}`);
+
+  if (filmeIndex !== -1 && estrela) {
+    if (filmes[filmeIndex].favorite) {
+      estrela.src = "/Imagens/icon_favorite_2.svg";
+    } else {
+      estrela.src = "/Imagens/icon_favorite_1.svg"
+    }
   }
 }
