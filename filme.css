@@ -112,6 +112,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding-top: 10px;
+    gap: 200px;
   }
   
   .alinhar {
