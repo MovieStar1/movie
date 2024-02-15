@@ -8,6 +8,8 @@ body {
 }
 
 @media screen and (max-width: 600px) {
+
+  /* HEADER */
   .menu {
     background-color: #8758ff;
     display: flex;
@@ -45,7 +47,7 @@ body {
       width: 60vw;
   }
 
-  .lista_menu_titulo, .lista_menu_item {
+  .lista_menu_item {
       font-size: 20px;
       padding: 0.9em;
   }
@@ -71,6 +73,7 @@ body {
       display: none;
   }
 
+  /* FAVORITOS */
 
   .favoritos_titulo {
     color: white;
@@ -117,7 +120,8 @@ body {
   
   .alinhar {
     display: flex;
-    gap: 50px;
+    align-items: baseline;
+    gap: 120px;
   }
   
 
@@ -152,11 +156,12 @@ body {
     gap: 50px;
     flex-direction: column;
   }
+
   .lista_filmes {
     display: flex;
     gap: 12px;
-    height: 120px;
-    padding-top: 15px;
+    height: 180px;
+    /* padding-top: 15px; */
     align-items: flex-start;
   }
 
@@ -173,14 +178,23 @@ body {
   }
 
   .lista_titulos {
+    width: 80px;
     color: white;
     font-size: 23px;
+    
   }
 
   .lista_titulos_p {
     color: white;
-    font-size: 14px;
+    font-size: 15px;
   }
+
+  .lista_titulos_p_p {
+    color: white;
+    font-size: 14px;
+    
+  }
+
 
   .lista_filmes_um {
     display: flex;
@@ -230,7 +244,6 @@ body {
    
   }
 
- 
 
   .form_container {
     display: flex;
@@ -278,11 +291,12 @@ body {
   .btn_acao {
    display: flex;
    gap: 20px;
+   height: 30px;
   }
 
   .botao_favorite {
     width: 20px;
-    height: 20px;
+    
   }
   
   .botao_edit {
@@ -294,5 +308,24 @@ body {
     width: 20px;
     height: 20px;
   }
- 
+
+
+  .img_text_container {
+      display: flex;
+      flex-direction: row;
+      align-items:flex-start;
+  }
+
+  .text_container {
+      margin-left: 10px; 
+  }
+
+  .btn_acao {
+      display: flex;
+     justify-content: start;
+    
+  }
+
+  
+
 }

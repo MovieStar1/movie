@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: black;
+  }
+
+@media screen and (max-width: 600px) {
+
+    /* HEADER */
+    .menu {
+        background-color: #8758ff;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    #menu {
+        position: absolute;
+        opacity: 0;
+    }
+
+    .menu_lista {
+        background-color: #8758ff;
+        width: 50px;
+        height: 50px;
+        background-image: url(/Imagens/icon_menu.svg);
+        background-size: 30px 30px;
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+    }
+
+    .menu_texto {
+        color: white;
+    }
+
+    .lista_menu {
+        display: none;
+        background-color: #8758ff ;
+        list-style-type: none;
+        position: absolute;
+        top: 100%;
+        width: 60vw;
+    }
+
+    .lista_menu_item {
+        font-size: 20px;
+        padding: 0.9em;
+    }
+
+    .lista_menu_link {
+        text-decoration: none;
+        color: white;
+    }
+
+    .menu_rotulo {
+        cursor: pointer;
+    }
+  
+    #menu:checked + .menu_rotulo ~ .lista_menu {
+        display: block;
+    }
+  
+    #menu:not(:checked) + .menu_rotulo ~ .lista_menu {
+        display: none;
+    }
+
+    /* SECTION CONTAINER PESQUISA*/
+
+    .container {
+        display: flex;
+       flex-direction: column;
+    }
+
+    .pesquisa {
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+        gap: 20px
+    }
+
+    .pesquisa_titulo {
+        color: white;
+    }
+
+    .input_text {
+        border-radius: 5px;
+        background-color: white;  
+        background-image: url(/imagens/icon_search.svg);
+        background-position:0%;
+        background-repeat: no-repeat;
+        height: 30px;
+        background-size: 5%;
+        border: none;
+        width: 90%;
+    }
+
+   
+
+    /* SECTION CONTAINER LISTA FAMOSOS*/
+
+    .lista_famosos{
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+    }
+    
+    
+    .lista_famosos_foto {
+        background: white;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        background-image: url(/imagens/chris\ evans.jpg);
+        background-position:50%;
+        background-repeat: no-repeat;
+        background-size: 100%;
+
+    }
+
+    .lista_text {
+        color: white;
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .lista_text_nome {
+        font-size: 20px;
+    }
+
+    .lista_text_trabalhos {
+        font-size: 15px;
+        font-style: italic;
+        color: #C7C8CC;
+    }
+
+    .lista_text_biografia {
+        font-size: 15px;
+        margin-top: 10px;
+        margin-left: 20px;
+        color: white;
+    }
+
+   
+}

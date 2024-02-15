@@ -52,19 +52,19 @@ addEventListener("DOMContentLoaded", (event) => {
     divFilme.classList.add("lista_filmes");
 
     divFilme.innerHTML = `
-      <div class="lista_filmes_um"></div>
+      
       <img class="img_poster" src="${filme.imagem}" />
-      <div class="text_container">
 
+      <div class="text_container">
         <div class="alinhar">
           <p class="lista_titulos">${filme.titulo}</p>
           <button class="btn_fav" onclick='clicarFavorito("${filme.id}")'>
                 <img src="/Imagens/icon_favorite_1.svg" class="botao_favorite" id="estrela-${filme.id}">
           </button>
-          </div>
+        </div>
 
         <p class="lista_titulos_p">${filme.genero}</p>
-        <p class="lista_titulos_p">${filme.sinopse}</p>
+        <p class="lista_titulos_p_p">${filme.sinopse}</p>
         <div class="btn_acao">
             <button class="btn_abrir_modal btn_editar" data-id="${filme.id}">
                 <img src="/Imagens/icon_edit.svg" class="botao_edit">
@@ -73,7 +73,7 @@ addEventListener("DOMContentLoaded", (event) => {
             <button class="btn_abrir_modal" onclick='excluir("${filme.id}")'>
               <img src="/Imagens/icon_delete.svg" class="botao_delete">
             </button>
-          </div>
+        </div>
       </div>
     `;
 
