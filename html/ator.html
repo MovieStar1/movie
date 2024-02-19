@@ -29,13 +29,61 @@
                 <h1>MOVIEStar</h1>
             </div>
         </div>
+    </header>
 
+ 
         <section class="container">
             <div class="pesquisa">
-                <h2 class="pesquisa_titulo">Celebridades</h2>
+                <div class="pesquisa_adicionar">
+                    <h2 class="pesquisa_titulo">Celebridades</h2>
+                    <button class="btn_abrir_modal" onclick="abrirModal('vis-modal')">
+                        <img src="/imagens/add-plus-new-svgrepo-com.svg" class="icone_adicionar">
+                    </button>
+                </div>  
                 <input class="input_text" type="text" id="f_pesquisa" name="f_pesquisa">
             </div>
 
+            <div id="vis-modal" class="modal">
+                <div class="modal_header">
+                    <h2 class="modal_header_texto">Adicionar</h2>
+                    <button class="modal_header_fechar" onclick="fecharModal('vis-modal')" aria-label="Fechar Modal">X</button>
+                </div>
+            
+                <div class="modal_conteudo">
+                    <form method="post" class="form_container" id="myForm">
+                        <div class="form_caixa">
+                            <label for="nome" class="form_nome"><b>Nome Completo</b></label>
+                            <input type="text" name="uname" required class="box_text" id="nome">
+                        </div>
+            
+                        <div class="form_caixa">
+                            <label for="trabalhos" class="form_nome"><b>Trabalhos</b></label>
+                            <textarea rows="4" class="box_text" id="biografia"></textarea>
+                        </div>
+            
+                        <div class="form_caixa">
+                            <label for="biografia" class="form_nome"><b>Biografia</b></label>
+                            <textarea rows="4" class="box_text" id="biografia"></textarea>
+                        </div>
+            
+                        <div class="form_caixa">
+                            <label for="modal_file" class="form_nome"><b>Escolha uma foto do artista:</b></label>
+                            <input type="file" id="modal_file" accept="image/png, image/jpeg" class="box_text">
+                        </div>
+            
+                        <button type="button" class="btn_salvar" id="salvo">Enviar</button>
+                        <button class="btn_fechar_modal" onclick="fecharModal('vis-modal')">Fechar</button>
+                    </form>
+                </div>
+            </div>
+            
+
+            </div>
+
+        </section>
+
+
+        <section class="lista">
             <div class="lista_famosos">
                 <div class="lista_famosos_foto"></div>
 
@@ -56,7 +104,7 @@
 
         
 
-        
-    </header>
+        <script src="/js/ator.js"
+    
 </body>
 </html>
