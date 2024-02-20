@@ -138,6 +138,9 @@ function salvar() {
   reader.readAsDataURL(new Blob([imagemFile]));
 }
 
+
+
+
 function editarFilme (id) {
   const filmes = JSON.parse(localStorage.getItem("filmes")) || [];
   const found = filmes.find(filme => filme.id === id);

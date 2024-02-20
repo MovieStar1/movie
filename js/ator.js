@@ -1,10 +1,10 @@
 const atores = JSON.parse(localStorage.getItem("atores")) || [];
 
+// MODAL
 function abrirModal(carregarModal) {
   let modal = document.getElementById(carregarModal);
   modal.style.display = "block";
   document.body.style.overflow = "hidden";
-  console.log("Modal aberto: " + carregarModal);
 }
 
 function fecharModal(fecharModal) {
@@ -13,6 +13,7 @@ function fecharModal(fecharModal) {
   document.body.style.overflow = "auto";
 }
 
+// ADICIONAR OS EVENTOS
 addEventListener("DOMContentLoaded", (event) => {
   const listaAtoresContainer = document.querySelector(".lista");
   const listaAtores = JSON.parse(localStorage.getItem("atores")) || [];
@@ -22,27 +23,32 @@ addEventListener("DOMContentLoaded", (event) => {
     divAtor.classList.add("lista_atores");
 
     divAtor.innerHTML = `
-            <div class="lista_famosos">
-                <div class="lista_famosos_foto"></div>
-
-                <div class="lista_text">
-                    <div class="lista_alinhar">
-                        <p class="lista_text_nome">Chris Evans</p>
-                        <button class="btn_editar"></button>
-                    </div>
-                    <p class="lista_text_trabalhos">Agente Oculto, Capitão América, Máfia da Dor</p>
+        <div class="lista_famosos">
+            <img class="lista_famosos_foto" src="${ator.imagem}">
+            <div class="lista_text">
+                <div class="lista_alinhar">
+                    <p class="lista_text_nome">${ator.nome}</p>
+                    <button class="btn_abrir_modal btn_editar" onclick='editarAtor("${ator.id}")'>
+                        <img src="/Imagens/icon_edit.svg" class="botao_edit">
+                    </button>
+                    <button class="btn_abrir_modal">
+                        <img src="/Imagens/icon_delete.svg" class="botao_excluir">
+                    </button>
                 </div>
-                
+                <p class="lista_text_trabalhos">${ator.trabalhos}</p>
             </div>
-            <p class="lista_text_biografia">Chris Evans nasceu o 13 de junho de 1981 em Boston, Massachusetts, EUA. É ator e produtor, conhecido pelo seu trabalho em The Avengers - Os Vingadores (2012), Capitão América: O Primeiro Vingador (2011) e Capitão América: Guerra Civil (2016). É casado com Alba Baptista.</p>
-            
-            <hr  class="linha" style="width: 90%; margin: 25px auto; border-color: #8758ff;">
-        `;
+        </div>
+        <p class="lista_text_biografia">${ator.biografia}</p>
+        <hr class="linha" style="width: 90%; margin: 25px auto; border-color: #8758ff;">
+    `;
 
     listaAtoresContainer.appendChild(divAtor);
   });
+
+  fecharModal("vis-modal");
 });
 
+// BOTAO SALVAR
 function salvar() {
   const nome = document.getElementById("nome").value;
   const trabalhos = document.getElementById("trabalhos").value;
@@ -75,4 +81,23 @@ function salvar() {
   };
 
   reader.readAsDataURL(new Blob([imagemFile]));
+}
+
+// BOTAO EDITAR
+function editarAtor(id) {
+  const atores = JSON.parse(localStorage.getItem("atores")) || [];
+  const found = atores.find((ator) => ator.id === id);
+
+  if (found) {
+    abrirModal("vis-modal");
+  }
+
+  document.getElementById("nome").value = found.nome;
+  document.getElementById("trabalhos").value = found.trabalhos;
+  documento.getElementById("biografia").value = found.biografia;
+
+  const buttonEnviar = document.getElementById("salvo");
+  buttonEnviar.onclick = function () {
+    salvarEdicao(id, found);
+  };
 }
