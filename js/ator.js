@@ -31,7 +31,7 @@ addEventListener("DOMContentLoaded", (event) => {
                     <button class="btn_abrir_modal btn_editar" onclick='editarAtor("${ator.id}")'>
                         <img src="/Imagens/icon_edit.svg" class="botao_edit">
                     </button>
-                    <button class="btn_abrir_modal">
+                    <button class="btn_abrir_modal" onclick='excluir("${ator.id}")'>
                         <img src="/Imagens/icon_delete.svg" class="botao_excluir">
                     </button>
                 </div>
@@ -86,7 +86,9 @@ function salvar() {
 // BOTAO EDITAR
 function editarAtor(id) {
   const atores = JSON.parse(localStorage.getItem("atores")) || [];
-  const found = atores.find((ator) => ator.id === id);
+  const found = atores.find(ator => ator.id === id);
+  console.log(found)
+
 
   if (found) {
     abrirModal("vis-modal");
@@ -94,10 +96,45 @@ function editarAtor(id) {
 
   document.getElementById("nome").value = found.nome;
   document.getElementById("trabalhos").value = found.trabalhos;
-  documento.getElementById("biografia").value = found.biografia;
+  document.getElementById("biografia").value = found.biografia;
 
-  const buttonEnviar = document.getElementById("salvo");
+  const buttonEnviar = document.getElementById('salvo');
   buttonEnviar.onclick = function () {
     salvarEdicao(id, found);
   };
+}
+
+function salvarEdicao(id, atorOriginal) {
+  const nome = document.getElementById('nome').value;
+  const trabalhos = document.getElementById('trabalhos').value;
+  const biografia = document.getElementById('biografia').value;
+  
+
+  const atorIndex = atores.findIndex((ator) => ator.id === id);
+
+  if(atorIndex !== -1) {
+    atores[atorIndex] = {
+      id: id,
+      nome: nome,
+      trabalhos: trabalhos,
+      biografia: biografia,
+      imagem: atorOriginal.imagem,
+    };
+
+    localStorage.setItem('atores', JSON.stringify(atores));
+
+    fecharModal('vis-modal');
+    location.reload()
+  }
+}
+
+
+// BOTAO EXCLUIR
+function excluir(id) {
+  const filtrado = atores.filter(function (ator) {
+    return id !== ator.id;
+  });
+
+  localStorage.setItem('atores', JSON.stringify(filtrado));
+  location.reload();
 }
